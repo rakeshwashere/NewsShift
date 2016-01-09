@@ -1,0 +1,13 @@
+import psycopg2
+
+
+conn = psycopg2.connect(database="NewsSource", user="rakesh", password="davps2005", host="newdb.cnceaogjppz8.us-west-2.rds.amazonaws.com", port="5432")
+cur = conn.cursor()
+
+cur.execute("select url from dic_test")
+rows = cur.fetchall()
+for row in rows:
+   print row[0], "\n"
+
+print "Operation done successfully";
+conn.close()
